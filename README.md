@@ -1,3 +1,3 @@
-# COMP299-M2021-Week3
+# Viktoriia Romaniuk 301079072 COMP299-M2021-Assignment01
 
-Demo Project for COMP299 - Week2
+Assignment Project for COMP299
