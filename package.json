@@ -12,6 +12,10 @@
     "@types/http-errors": "^1.8.0",
     "@types/morgan": "^1.9.2",
     "@types/node": "^15.6.1",
-    "ejs": "^3.0.6"
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.0.6",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0"
   }
 }
