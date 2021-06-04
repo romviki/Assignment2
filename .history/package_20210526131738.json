@@ -1,0 +1,12 @@
+{
+  "name": "comp299-week2",
+  "version": "0.0.1",
+  "description": "Demo Project For Comp 229 week2",
+  "main": "index.js",
+  "author": "Viktoriia Romaniuk",
+  "license": "MIT",
+  "scripts": 
+  {
+    "start": 
+  }
+}
