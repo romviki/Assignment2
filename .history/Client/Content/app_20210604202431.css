@@ -1,0 +1,8 @@
+/* your custom css goes here */
+
+.center {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  align-content: center;
+}
