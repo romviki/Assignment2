@@ -1,0 +1,53 @@
+<!-- contact.ejs : Viktoriia Romaniuk : 301079072 : 2021-06-03 -->
+
+<!-- Header block -->
+<%- include ("partials/header.ejs") %>
+
+<!-- Main navigation bar -->
+<%- include ("partials/main_nav.ejs") %>
+
+
+<h2>Add Contact Container</h2>
+<p>Add a new container with contact information:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;container-fluid bg-grey&quot;&gt;<br>&nbsp; &lt;h2 class=&quot;text-center&quot;&gt;CONTACT&lt;/h2&gt;<br>&nbsp; &lt;div class=&quot;row&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div class=&quot;col-sm-5&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;Contact us and we'll get back to you within 24 hours.&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;&lt;span class=&quot;glyphicon glyphicon-map-marker&quot;&gt;&lt;/span&gt; Chicago, US&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;&lt;span class=&quot;glyphicon glyphicon-phone&quot;&gt;&lt;/span&gt; +00 1515151515&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;&lt;span class=&quot;glyphicon glyphicon-envelope&quot;&gt;&lt;/span&gt; myemail@something.com&lt;/p&gt; <br>&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div class=&quot;col-sm-7&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class=&quot;row&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class=&quot;col-sm-6 form-group&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input class=&quot;form-control&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;Name&quot; type=&quot;text&quot; required&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class=&quot;col-sm-6 form-group&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input class=&quot;form-control&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Email&quot; type=&quot;email&quot; required&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;textarea class=&quot;form-control&quot; id=&quot;comments&quot; name=&quot;comments&quot; placeholder=&quot;Comment&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;&lt;br&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class=&quot;row&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class=&quot;col-sm-12 form-group&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class=&quot;btn btn-default pull-right&quot; type=&quot;submit&quot;&gt;Send&lt;/button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt; <br>&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp; &lt;/div&gt;<br>
+ &lt;/div&gt;</div>
+<p>Result:</p>
+<div class="container-fluid" style="background-color:#f6f6f6;padding:60px;">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-md-5 col-xs-12">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>    
+    </div>
+    <div class="col-md-7 col-xs-12">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 col-md-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-xs-12 col-md-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+<a target="_blank" href="tryit.asp?filename=trybs_theme_company_contact&stacked=h" class="w3-btn w3-margin-bottom w3-margin-top">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<!-- Bottom stick navigator bar -->
+<%- include ("partials/bottom_nav.ejs") %>
+
+<!-- Footer block -->
+<%- include ("partials/footer.ejs") %>

@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 exports.default = router;
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Home' });
+    res.render('home', { title: 'Home' });
 });
 router.get('/home', function (req, res, next) {
     res.render('home', { title: 'Home' });
@@ -23,5 +23,8 @@ router.get('/services', function (req, res, next) {
 });
 router.get('/contact', function (req, res, next) {
     res.render('contact', { title: 'Contact' });
+});
+router.post('/home', function (req, res, next) {
+    res.render('home', { title: 'Home' });
 });
 //# sourceMappingURL=index.js.map
