@@ -28,19 +28,14 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: auto;
+    width: 50%;
   }
 
   td {
-
+      left: 30%;
     padding: 5px;
     position: relative;
 }
-
-table.center {
-    margin-left: auto; 
-    margin-right: auto;
-  }
   
 
   

@@ -28,18 +28,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: auto;
-  }
 
-  td {
-
-    padding: 5px;
-    position: relative;
-}
-
-table.center {
-    margin-left: auto; 
-    margin-right: auto;
   }
   
 
