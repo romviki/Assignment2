@@ -1,9 +1,5 @@
 /* your custom css goes here */
 
-* {
-    box-sizing: border-box;
-  }
-
 .home-img {
     display: block;
     margin-left: auto;
@@ -20,10 +16,12 @@
     border: 2px solid rgb(146, 132, 132);
     margin: 0px;
     padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
   }
- 
+  
+
   
 
   

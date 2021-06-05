@@ -1,9 +1,5 @@
 /* your custom css goes here */
 
-* {
-    box-sizing: border-box;
-  }
-
 .home-img {
     display: block;
     margin-left: auto;
@@ -23,7 +19,20 @@
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
   }
- 
+  
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
   
 
   

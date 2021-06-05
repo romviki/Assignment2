@@ -1,9 +1,5 @@
 /* your custom css goes here */
 
-* {
-    box-sizing: border-box;
-  }
-
 .home-img {
     display: block;
     margin-left: auto;
@@ -14,16 +10,16 @@
 
   .centered {
     position: fixed;
-    top: 60%;
-    left: 50%;
-    width: 30%;
+    top: 50%;
+    left: 35%;
     border: 2px solid rgb(146, 132, 132);
     margin: 0px;
     padding: 10px;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
   }
- 
+  
+
   
 
   
