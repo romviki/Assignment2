@@ -1,0 +1,180 @@
+/* your custom css goes here */
+
+* {
+    box-sizing: border-box;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+
+  }
+  
+  label {
+    padding: 12px 2px 2px 2px;
+    display: inline-block;
+    text-align: right;
+  }
+  
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid darkgray;
+    padding: 5px;
+    width: 35%;
+    margin-right:  10%;
+  }
+  
+  .col-2 {
+    float: left;
+    width: 45px;
+    margin-top: 1px;
+  }
+
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 1px;
+  }
+
+  .postal {
+    float: left;
+    width: 15%;
+    margin-top: 1px;
+    margin-right: 50%;
+  }
+
+  .age {
+    float: left;
+    width: 12%;
+    margin-top: 1px;
+    margin-right: 50%;
+  }
+
+  .col-35 {
+    float: left;
+    width: 55%;
+    margin-top: 1px;
+  }
+
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 1px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /*
+
+  input:invalid {
+      background: rgb(230, 206, 206);
+  }
+
+  select:user-invalid {
+      background:  rgb(255,233,233);
+  }
+  
+  input:valid {
+      background: rgb(226, 243, 226);
+  }
+  */
+
+  button, input[type="button"], input[type="submit"] {
+    background-color: lightskyblue;
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 3%;
+    border:hidden;
+    color: black;
+  }
+
+  button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    background-color:deepskyblue;
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  #ErrorText {
+    margin-left: 25%;
+    padding: 10px;
+    box-sizing: border-box;
+    color: red;
+
+  }
+
+
+.home-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    /*width: 20%;*/
+  }
+
+  .centered {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    width: 30%;
+    border: 2px solid rgb(146, 132, 132);
+    margin: 0px;
+    padding: 10px;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+  }
+ 
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+  }
+
+  td {
+
+    padding: 5px;
+    position: relative;
+}
+
+table.center {
+    margin-left: auto; 
+    margin-right: auto;
+  }
+
+
+
+  

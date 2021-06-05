@@ -1,0 +1,160 @@
+  <!-- content.ejs : Viktoriia Romaniuk : 301079072 : 2021-06-03 -->
+  <!-- Main content section -->
+  <main class="container">
+    <div class="jumbotron">
+    
+      <!--h1-- class="display-8"></!--h1-->
+        
+        <% if (title == "Home") { %>
+        <div class="row-fluid center">     
+            <h4 style="text-align: center"> <b>Web design && Programming</b></h4>
+        </div>
+        <div>
+            <img src="/Assets/images/home_bg.png">
+        </div>
+        <% } else if (title == "About") { %>
+        <div class="row-fluid center" style="padding-top: 10px">     
+            <h4 style="text-align: center; padding-top: 30px;"> <b>Hello, I'm Viktoriia</b></h4>
+        </div>
+        <table>
+            <th style="width: 20%">
+                <td style="width: 10%">
+                    <img src="/Assets/images/viktoriia.jpg" alt="">
+                </td>
+                <td style="width: 40%; padding: 10px;">
+                        I am green web Developer creative and full of ideas. Web site development is my passion.  
+                        I became fascinated by the ability a web developer has to be imaginative, artistic and technical while developing a product that benefits and inspires others.
+                        I am proficient in HTML, CSS and PHP, and I have beginner-level proficiency in SQL and JavaScript.
+                </td>
+                <td style="width: 70%" >
+                </td>
+            </th>
+        </table>
+ 
+        </div>
+        
+        <% } else if (title == "Projects") { %>
+        
+            <table class="center">
+                <tr>
+                    <td>
+                        <div style="font-size: 25px; color: red; text-align: center;">
+                            Real Estate Website
+                        </div>
+                        <a href="http://studentweb.cencol.ca/vromaniu/Project/house1.html">
+                            <img src="/Assets/images/realestate.jpg" alt="" >
+                        </a>                      
+                        
+                    </td>
+                    <td> 
+                        <div style="font-size: 25px; color: red; text-align: center;">
+                            Photo Gallery
+                        </div>
+                        <a href="http://studentweb.cencol.ca/vromaniu/Semester2/Assignment6/photos.htm">
+                            <img src="/Assets/images/gallery.jpg" alt="">
+                        </a> 
+                    </td>
+                    <td>
+                        <div style="font-size: 25px; color: red; text-align: center;">
+                            Game
+                        </div>
+                        <a href="http://studentweb.cencol.ca/vromaniu/Semester2/Assignment5/index.html">
+                            <img src="/Assets/images/socker.png" alt="">
+                        </a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 250px; text-align: center;">
+                           Designed and build website, created site content 
+                        </div>
+                        
+                    </td>
+                    <td>
+                        <div style="width: 300px; text-align: center;">
+                            Created a professional-looking online photo gallery
+                        </div>
+                        
+                    </td>
+                    <td>
+                        <div style="width: 300px; text-align: center;">
+                            The player tries to catch the ball by clicking on it. 
+                            If he succeeds, the score is incremented and the hopping interval is decremented 
+                        </div>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        <% } else if (title == "Services") { %>
+            <table class="center">
+                <tr>
+                    <td>
+                        <div style="font-size: 25px; color: red; text-align: center;">
+                            Web Design
+                        </div>
+                        <img src="/Assets/images/web-design.jpg" alt="" >                     
+                        
+                    </td>
+                    <td> 
+                        <div style="font-size: 25px; color: red; text-align: center;">
+                            Programming
+                        </div>
+                        <img src="/Assets/images/programming.jpg" alt="" >
+                    </td>
+                    <td>
+                        <div style="font-size: 25px; color: red; text-align: center;">
+                            Mobile Applications
+                        </div>
+                            <img src="/Assets/images/mobile.jpg" alt="" >                   
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 250px; text-align: center;">
+                            We can help you with website design, domain registration, web hosting, development and more.
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 250px; text-align: center;">
+                            We create user friendly solutions to very complex problems. Our clients typically include our work as part of their core product offerings.
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 250px; text-align: center;">
+                            Based on your requirements, we develop an app for your business.
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        <p1>It is projects page</p1>
+        <% } else if (title == "Contact") { %>
+        
+            <form action="">
+                <div class="container">
+                  <img src="img/CentennialCollegeLogo.jpg"/>
+                   <h2>Centennial College Registration Form</h2>
+                   <form action="results.htm">
+                    <fieldset id="contactinfo">
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="firstName">First Name:</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="firstName" name="firstname" placeholder="Please enter your first name..">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="lastName">Last Name:</label>
+                        </div>
+                        <div class="col-75">  
+                          <input type="text" id="lastName" name="lastName" placeholder="Please enter your last name..">
+                        </div>
+                      </div>
+
+        <% } %>
+
+    </p1>
+  </main>
