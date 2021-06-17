@@ -35,8 +35,8 @@ router.get('/contact', function(req, res, next) {
 });
 
 /* GET login page. */
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login' });
+router.get('/contact', function(req, res, next) {
+  res.render('contact', { title: 'Contact' });
 });
 
 router.post('/home', function(req, res, next) {
