@@ -17,7 +17,7 @@ mongoDB.once('open', () => {
     console.log('Connected to MongoDB...');
 });
 let indexRouter = require('../routes/index');
-let usersRouter = require('../routes/user');
+let usersRouter = require('../routes/users');
 const app = express_1.default();
 exports.default = app;
 app.set('views', path_1.default.join(__dirname, '../views'));

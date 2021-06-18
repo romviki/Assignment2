@@ -5,15 +5,14 @@ let router = express.Router();
 let mongoose = require('mongoose');
 let User = require('../models/user');
 router.get('/', (req, res, next) => {
-    User.find((err, UserList) => {
+    User.find((err, usersList) => {
         if (err) {
             return console.error(err);
         }
         else {
-            res.render('users', { title: 'Business Contact List', UsersList: UserList });
+            res.render('users', { title: 'Business Contact List', UsersList: usersList });
         }
     });
 });
-;
 module.exports = router;
-//# sourceMappingURL=user.js.map
+//# sourceMappingURL=users.js.map

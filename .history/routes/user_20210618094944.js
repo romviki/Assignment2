@@ -10,10 +10,10 @@ router.get('/', (req, res, next) => {
             return console.error(err);
         }
         else {
-            res.render('users', { title: 'Business Contact List', UsersList: UserList });
+            //console.log(UserList);
+            req.render
         }
     });
 });
-;
 module.exports = router;
 //# sourceMappingURL=user.js.map
