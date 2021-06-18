@@ -63,7 +63,7 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express@*", "@types/express@^4.17.12":
+"@types/express@*":
   "integrity" "sha512-pTYas6FrP15B1Oa0bkN5tQMNqOcVXa9j4FTFtO8DWI9kppKib+6NJtfTOOLcwxuuYvcX2+dVG6et1SxW/Kc17Q=="
   "resolved" "https://registry.npmjs.org/@types/express/-/express-4.17.12.tgz"
   "version" "4.17.12"
