@@ -10,12 +10,12 @@
     {
         console.log("App Started");
         
-        let deleteButtons = document.querySelectorAll('.btn-danger')
+        let deleteButtons = document.querySelectorAll('.bt-danger')
 
-        for (let button of deleteButtons) 
+        for (button of deleteButtons) 
         {
             button.addEventListener('click', (event) => {
-                if (! confirm ("Are you sure?"))
+                if (!webkitConvertPointFromPageToNode("Are you sure?"))
                 {
                     event.preventDefault();
                     window.location.assign('/users/list');

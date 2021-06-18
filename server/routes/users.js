@@ -1,17 +1,14 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const user_1 = __importDefault(require("../models/user"));
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+let User = require('../models/user');
 router.get('/', (req, res, next) => {
     res.redirect('/users/list');
 });
 router.get('/list', (req, res, next) => {
-    user_1.default.find((err, usersList) => {
+    User.find((err, usersList) => {
         if (err) {
             return console.error(err);
         }
@@ -24,14 +21,14 @@ router.get('/add', (req, res, next) => {
     res.render('users/add', { title: 'Add New Contact' });
 });
 router.post('/add', (req, res, next) => {
-    let newUser = user_1.default({
+    let newUser = User({
         "user": req.body.user,
         "name": req.body.name,
         "phone": req.body.phone,
         "email": req.body.email,
         "password": req.body.password,
     });
-    user_1.default.create(newUser, (err, User) => {
+    User.create(newUser, (err, User) => {
         if (err) {
             console.log(err);
             res.end(err);
@@ -43,7 +40,7 @@ router.post('/add', (req, res, next) => {
 });
 router.get('/edit/:id', (req, res, next) => {
     let id = req.params.id;
-    user_1.default.findById(id, (err, userToEdit) => {
+    User.findById(id, (err, userToEdit) => {
         if (err) {
             console.log(err);
             res.end(err);
@@ -55,7 +52,7 @@ router.get('/edit/:id', (req, res, next) => {
 });
 router.post('/edit/:id', (req, res, next) => {
     let id = req.params.id;
-    let updateUser = user_1.default({
+    let updateUser = User({
         "_id": id,
         "user": req.body.user,
         "name": req.body.name,
@@ -63,7 +60,7 @@ router.post('/edit/:id', (req, res, next) => {
         "email": req.body.email,
         "password": req.body.password
     });
-    user_1.default.updateOne({ "_id": id }, updateUser, (err) => {
+    User.updateOne({ "_id": id }, updateUser, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
@@ -75,7 +72,7 @@ router.post('/edit/:id', (req, res, next) => {
 });
 router.get('/delete/:id', (req, res, next) => {
     let id = req.params.id;
-    user_1.default.remove({ "_id": id }, (err) => {
+    User.remove({ "_id": id }, (err) => {
         if (err) {
             console.log(err);
             res.end(err);

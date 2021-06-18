@@ -1,4 +1,3 @@
-import { AnyARecord } from 'dns';
 import { Request, Response, NextFunction } from 'express';
 //import User from '../models/user';
 let express = require('express');
@@ -6,7 +5,7 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 // Connect to our User Model
-let User = require('../models/user');
+//let User = require('../models/user');
 
 /* Get Route for the User List page - READ Operation */
 router.get('/', (req:Request,res:Response,next:NextFunction) => {
@@ -43,7 +42,7 @@ router.post('/add', (req:Request,res:Response,next:NextFunction) => {
         "password": req.body.password,
     });
 
-    User.create(newUser, (err: Error, User : AnyARecord) => {
+    User.create(newUser, (err: Error, User: User) => {
         if (err)
         {
             console.log(err);
@@ -61,7 +60,7 @@ router.post('/add', (req:Request,res:Response,next:NextFunction) => {
 router.get('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
     let id = req.params.id;
 
-    User.findById(id, (err:Error, userToEdit: AnyARecord) => {
+    User.findById(id, (err:Error, userToEdit: User) => {
         if (err) 
         {
             console.log(err);
