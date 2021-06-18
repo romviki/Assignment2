@@ -17,7 +17,7 @@ mongoDB.once('open', () => {
     console.log('Connected to MongoDB...');
 });
 let indexRouter = require('../routes/index');
-let usersRouter = require('../routes/users');
+let userRouter = require('../routes/users');
 const app = express_1.default();
 exports.default = app;
 app.set('views', path_1.default.join(__dirname, '../views'));
@@ -29,7 +29,7 @@ app.use(cookie_parser_1.default());
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../public')));
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../node_modules')));
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/users', userRouter);
 app.use(function (req, res, next) {
     next(http_errors_1.default(404));
 });

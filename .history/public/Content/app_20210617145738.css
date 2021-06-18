@@ -1,0 +1,52 @@
+/* app.ts : Viktoriia Romaniuk : 301079072 : 2021-06-03 */
+
+p.indent {
+    text-indent: 30px;
+    text-align: justify;
+}
+
+.home-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    width: 10%;
+  }
+
+  .centered {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    width: 30%;
+    border: 2px solid rgb(146, 132, 132);
+    margin: 0px;
+    padding: 10px;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+  }
+ 
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+  }
+
+  td {
+
+    padding: 5px;
+    position: relative;
+}
+
+table.center {
+    margin-left: auto; 
+    margin-right: auto;
+  }
+
+  center {
+      display: block;
+      text-align: center;
+  }
+
+
+  

@@ -1,0 +1,58 @@
+<!-- business_list.ejs : Viktoriia Romaniuk : 301079072 : 2021-06-17 -->
+
+<!-- Header block -->
+<%- include ("../partials/header.ejs") %>
+
+<!-- Main navigation bar -->
+<%- include ("../partials/main_nav.ejs") %>
+
+<!-- Main Content -->
+<main class="container">
+
+    <div class="row">
+        <div class="offset-md2 col-md-8">
+
+            <h1 class="text-center"><%= title %></h1>
+            <a href="/users/add" class="btn btn-primary btn10v" role="button" >
+            <i class="fas fa-plus-circle"></i> Add User</a>  
+
+            <table class="table table-bordered table-striped table-hover">
+                <!-- Header table -->
+                <tr>
+                    <th class="text-center">Contact Name</th>
+                    <th class="text-center">Contact Number</th>
+                    <th class="text-center">Email Address</th>
+                    <th class="text-center col-1"></th>
+                    <th class="text-center col-1"></th>
+                </tr>
+
+                <!-- Repeatable section -->
+              <tr>
+                <% for (let count = 0; count < UsersList.length ; count++) { %>
+                    <tr>
+                        <td class="text-center"><%= UsersList[count].name %></td>
+                        <td class="text-center"><%= UsersList[count].phone %></td>
+                        <td class="text-center"><%= UsersList[count].email %></td>
+                        <td class="text-center col-1">
+                            <a href="/users/edit/<%= UsersList[count]._id %>" class="btn btn-primary">
+                                <i class="fas fa-pencil-alt"></i> Edit</a>
+                        </td>
+                        <td class="text-center col-1">
+                            <a href="/users/delete/<%= UsersList[count]._id %>" class="btn btn-danger">
+                                <i class="fas fa-trash alt"></i> Delete</a>
+                        </td>
+                    </tr>
+                <% } %>
+              </tr>
+            </table>
+
+        </div>
+    </div>
+
+</main>
+
+<!-- Bottom stick navigator bar -->
+<%- include ("../partials/bottom_nav.ejs") %>
+
+<!-- Footer block -->
+<%- include ("../partials/footer.ejs") %>
