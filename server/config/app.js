@@ -26,8 +26,8 @@ app.use(morgan_1.default('dev'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(cookie_parser_1.default());
-app.use(express_1.default.static(path_1.default.join(__dirname, '../Client')));
-app.use(express_1.default.static(path_1.default.join(__dirname, '../node_modules')));
+app.use(express_1.default.static(path_1.default.join(__dirname, '../../public')));
+app.use(express_1.default.static(path_1.default.join(__dirname, '../../node_modules')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(function (req, res, next) {
