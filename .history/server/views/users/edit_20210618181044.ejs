@@ -1,4 +1,4 @@
-<!-- add.ejs : Viktoriia Romaniuk : 301079072 : 2021-06-18 -->
+<!-- edit.ejs : Viktoriia Romaniuk : 301079072 : 2021-06-18 -->
 
 <!-- Header block -->
 <%- include ("../partials/header.ejs") %>
@@ -18,35 +18,43 @@
                     ><input type="text" class="form-control"
                     id="userTextFied"
                     placeholder="Enter User account name"
-                    name="user" required>
+                    name="user" 
+                    value="<%= user.user %>"
+                    required>
                 </div>
                 <div class="form-group">
                     <label for="nameTextFied">Full name</label         
                     ><input type="text" class="form-control"
                     id="nameTextFied"
                     placeholder="Enter User full name"
-                    name="name" required>
+                    name="name" 
+                    value="<%= user.name %>"
+                    required>
                 </div>
                 <div class="form-group">
                     <label for="phoneTextFied">Phone number</label         
                     ><input type="phone" class="form-control"
                     id="phoneTextFied"
                     placeholder="Enter the Phone number"
-                    name="phone">
+                    name="phone"
+                    value="<%= user.phone %>">
                 </div>
                 <div class="form-group">
                     <label for="emailTextFied"">Email</label         
                     ><input type="email" class="form-control"
                     id="emailTextFied"
                     placeholder="Enter email"
-                    name="email">
+                    name="email" 
+                    value="<%= user.email %>">
                 </div>
                 <div class="form-group">
                     <label for="passwordTextFied">Password</label         
                     ><input type="password" class="form-control"
                     id="passwordTextFied"
                     placeholder="Enter User password"
-                    name="password" required>
+                    name="password" 
+                    value="<%= user.phone %>"
+                    required>
                 </div>
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>

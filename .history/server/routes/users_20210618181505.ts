@@ -88,7 +88,7 @@ router.post('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
         "password": req.body.password
     });
 
-    User.updateOne({"_id": id}, updateUser, (err: Error) => {
+    User.updateOne({id: id}, updateUser, (err: Error) => {
         if (err) 
         {
             console.log(err);
@@ -103,10 +103,10 @@ router.post('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
 });
 
 /* GET to perform  Deletion - DELETE Operation */
-router.get('/delete/:id', (req:Request,res:Response,next:NextFunction) => {
+router.get('/users/delete/:id', (req:Request,res:Response,next:NextFunction) => {
     let id = req.params.id;
 
-    User.remove({"_id": id}, (err:Error) => {
+    User.remove({_id: id}, (err:Error) => {
         if (err) 
         {
             console.log(err);

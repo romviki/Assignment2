@@ -23,7 +23,7 @@ router.get('/list', (req, res, next) => {
 router.get('/add', (req, res, next) => {
     res.render('users/add', { title: 'Add New Contact' });
 });
-router.post('/users/add', (req, res, next) => {
+router.post('/add', (req, res, next) => {
     let newUser = user_1.default({
         "user": req.body.user,
         "name": req.body.name,
@@ -31,55 +31,57 @@ router.post('/users/add', (req, res, next) => {
         "email": req.body.email,
         "password": req.body.password,
     });
-    user_1.default.crate(newUser, (err, User) => {
+    user_1.default.create(newUser, (err, User) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.redirect('/contact/list');
+            res.redirect('/users/list');
         }
     });
 });
-router.get('/contact/edit/:id', (req, res, next) => {
+router.get('/edit/:id', (req, res, next) => {
     let id = req.params.id;
-    user_1.default.findBtId(id, (err, userToEdit) => {
+    user_1.default.findById(id, (err, userToEdit) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.render('/contact/edit', { title: 'Edit Contact', user: userToEdit });
+            res.render('users/edit', { title: 'Edit Contact', user: userToEdit });
         }
     });
 });
-router.post('/contact/edit/:id', (req, res, next) => {
+router.post('/edit/:id', (req, res, next) => {
     let id = req.params.id;
     let updateUser = user_1.default({
         "_id": id,
+        "user": req.body.user,
         "name": req.body.name,
         "phone": req.body.phone,
-        "email": req.body.email
+        "email": req.body.email,
+        "password": req.body.password
     });
-    user_1.default.updateOne({ id: id }, updateUser, (err) => {
+    user_1.default.updateOne({ "_id": id }, updateUser, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.redirect('/contact/list');
+            res.redirect('/users/list');
         }
     });
 });
-router.get('/contact/delete/:id', (req, res, next) => {
+router.get('/delete/:id', (req, res, next) => {
     let id = req.params.id;
-    user_1.default.remove({ _id: id }, (err) => {
+    user_1.default.remove({ "_id": id }, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.redirect('/contact/list');
+            res.redirect('/users/list');
         }
     });
 });

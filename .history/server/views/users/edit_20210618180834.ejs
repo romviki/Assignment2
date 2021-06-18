@@ -1,4 +1,4 @@
-<!-- add.ejs : Viktoriia Romaniuk : 301079072 : 2021-06-18 -->
+<!-- edit.ejs : Viktoriia Romaniuk : 301079072 : 2021-06-18 -->
 
 <!-- Header block -->
 <%- include ("../partials/header.ejs") %>
@@ -18,7 +18,9 @@
                     ><input type="text" class="form-control"
                     id="userTextFied"
                     placeholder="Enter User account name"
-                    name="user" required>
+                    name="user" 
+                    value="<%= user.user %>"
+                    required>
                 </div>
                 <div class="form-group">
                     <label for="nameTextFied">Full name</label         

@@ -28,12 +28,12 @@ router.get('/list', (req:Request,res:Response,next:NextFunction) => {
 });
 
 /* GET Route for displaying the Add page - CREATE Operation */
-router.get('/add', (req:Request,res:Response,next:NextFunction) => {
+router.get('/users/add', (req:Request,res:Response,next:NextFunction) => {
     res.render('users/add', { title: 'Add New Contact'});
 });
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post('/add', (req:Request,res:Response,next:NextFunction) => {
+router.post('/users/add', (req:Request,res:Response,next:NextFunction) => {
     let newUser = User({
         "user": req.body.user,
         "name": req.body.name,
@@ -42,7 +42,7 @@ router.post('/add', (req:Request,res:Response,next:NextFunction) => {
         "password": req.body.password,
     });
 
-    User.create(newUser, (err: Error, User: User) => {
+    User.crate(newUser, (err: Error, User: User) => {
         if (err)
         {
             console.log(err);
@@ -57,10 +57,10 @@ router.post('/add', (req:Request,res:Response,next:NextFunction) => {
 });
 
 /* GET Route for displaying the Add page - UPDATE Operation */
-router.get('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
+router.get('/contact/edit/:id', (req:Request,res:Response,next:NextFunction) => {
     let id = req.params.id;
 
-    User.findById(id, (err:Error, userToEdit: User) => {
+    User.findBtId(id, (err:Error, userToEdit: User) => {
         if (err) 
         {
             console.log(err);
@@ -69,26 +69,24 @@ router.get('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
         else
         {
             // show the edit view
-            res.render('users/edit', {title: 'Edit Contact', user: userToEdit})
+            res.render('/users/edit', {title: 'Edit Contact', user: userToEdit})
         }
 
     });
 });
 
 /* POST Route for processing the Add page - UPDATE Operation */
-router.post('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
+router.post('/users/edit/:id', (req:Request,res:Response,next:NextFunction) => {
     let id = req.params.id;
 
     let updateUser = User ({
         "_id": id,
-        "user": req.body.user,
         "name": req.body.name,
-        "phone": req.body.phone,    
-        "email": req.body.email,
-        "password": req.body.password
+        "phone": req.body.phone,
+        "email": req.body.email
     });
 
-    User.updateOne({"_id": id}, updateUser, (err: Error) => {
+    User.updateOne({id: id}, updateUser, (err: Error) => {
         if (err) 
         {
             console.log(err);
@@ -103,10 +101,10 @@ router.post('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
 });
 
 /* GET to perform  Deletion - DELETE Operation */
-router.get('/delete/:id', (req:Request,res:Response,next:NextFunction) => {
+router.get('/users/delete/:id', (req:Request,res:Response,next:NextFunction) => {
     let id = req.params.id;
 
-    User.remove({"_id": id}, (err:Error) => {
+    User.remove({_id: id}, (err:Error) => {
         if (err) 
         {
             console.log(err);
@@ -115,7 +113,7 @@ router.get('/delete/:id', (req:Request,res:Response,next:NextFunction) => {
         else
         {
             // refresh the contact list
-            res.redirect('/users/list');
+            res.redirect('/usres/list');
         }
     });
 });

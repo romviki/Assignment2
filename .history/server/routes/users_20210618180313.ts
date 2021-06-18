@@ -5,7 +5,7 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 // Connect to our User Model
-//let User = require('../models/user');
+let User = require('../models/user');
 
 /* Get Route for the User List page - READ Operation */
 router.get('/', (req:Request,res:Response,next:NextFunction) => {
@@ -29,7 +29,7 @@ router.get('/list', (req:Request,res:Response,next:NextFunction) => {
 
 /* GET Route for displaying the Add page - CREATE Operation */
 router.get('/add', (req:Request,res:Response,next:NextFunction) => {
-    res.render('users/add', { title: 'Add New Contact'});
+    res.render('/users/add', { title: 'Add New Contact'});
 });
 
 /* POST Route for processing the Add page - CREATE Operation */
@@ -42,7 +42,7 @@ router.post('/add', (req:Request,res:Response,next:NextFunction) => {
         "password": req.body.password,
     });
 
-    User.create(newUser, (err: Error, User: User) => {
+    User.crate(newUser, (err: Error, User: User) => {
         if (err)
         {
             console.log(err);
@@ -60,7 +60,7 @@ router.post('/add', (req:Request,res:Response,next:NextFunction) => {
 router.get('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
     let id = req.params.id;
 
-    User.findById(id, (err:Error, userToEdit: User) => {
+    User.findBtId(id, (err:Error, userToEdit: User) => {
         if (err) 
         {
             console.log(err);
@@ -69,7 +69,7 @@ router.get('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
         else
         {
             // show the edit view
-            res.render('users/edit', {title: 'Edit Contact', user: userToEdit})
+            res.render('/users/edit', {title: 'Edit Contact', user: userToEdit})
         }
 
     });
@@ -81,14 +81,12 @@ router.post('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
 
     let updateUser = User ({
         "_id": id,
-        "user": req.body.user,
         "name": req.body.name,
-        "phone": req.body.phone,    
-        "email": req.body.email,
-        "password": req.body.password
+        "phone": req.body.phone,
+        "email": req.body.email
     });
 
-    User.updateOne({"_id": id}, updateUser, (err: Error) => {
+    User.updateOne({id: id}, updateUser, (err: Error) => {
         if (err) 
         {
             console.log(err);
@@ -103,10 +101,10 @@ router.post('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
 });
 
 /* GET to perform  Deletion - DELETE Operation */
-router.get('/delete/:id', (req:Request,res:Response,next:NextFunction) => {
+router.get('/users/delete/:id', (req:Request,res:Response,next:NextFunction) => {
     let id = req.params.id;
 
-    User.remove({"_id": id}, (err:Error) => {
+    User.remove({_id: id}, (err:Error) => {
         if (err) 
         {
             console.log(err);

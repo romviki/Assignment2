@@ -103,7 +103,7 @@ router.post('/edit/:id', (req:Request,res:Response,next:NextFunction) => {
 });
 
 /* GET to perform  Deletion - DELETE Operation */
-router.get('/delete/:id', (req:Request,res:Response,next:NextFunction) => {
+router.get('/users/delete/:id', (req:Request,res:Response,next:NextFunction) => {
     let id = req.params.id;
 
     User.remove({"_id": id}, (err:Error) => {
