@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
-exports.default = router;
 router.get('/', function (req, res, next) {
     res.render('home', { title: 'Home' });
 });
@@ -30,4 +29,5 @@ router.get('/login', function (req, res, next) {
 router.post('/home', function (req, res, next) {
     res.render('home', { title: 'Home' });
 });
+module.exports = router;
 //# sourceMappingURL=index.js.map

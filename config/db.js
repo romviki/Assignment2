@@ -1,6 +1,6 @@
 "use strict";
 module.exports =
     {
-        "URI": "mongodb://localhost/users"
+        "URI": "mongodb://localhost"
     };
 //# sourceMappingURL=db.js.map
