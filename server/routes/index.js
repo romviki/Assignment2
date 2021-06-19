@@ -5,16 +5,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
-let indexController = require('../controllers/index');
-router.get('/', indexController.displayHomePage);
-router.get('/home', indexController.displayHomePage);
-router.get('/about', indexController.displayAboutPage);
-router.get('/projects', indexController.displayProjectsPage);
-router.get('/services', indexController.displayServicesPage);
-router.get('/contact', indexController.displayContactPage);
-router.get('/login', indexController.displayLoginPage);
-router.post('/home', function (req, res, next) {
-    res.render('home', { title: 'Home' });
-});
-module.exports = router;
+const index_1 = require("../controllers/index");
+router.get('/', index_1.displayHomePage);
+router.get('/home', index_1.displayHomePage);
+router.get('/about', index_1.displayAboutPage);
+router.get('/projects', index_1.displayProjectsPage);
+router.get('/services', index_1.displayServicesPage);
+router.get('/contact', index_1.displayContactPage);
+router.get('/login', index_1.displayLoginPage);
+router.post('/login', index_1.processLoginPage);
+router.get('/logout', index_1.processLogoutPage);
+exports.default = router;
 //# sourceMappingURL=index.js.map

@@ -1,17 +1,20 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-let express = require('express');
-let router = express.Router();
-let mongoose = require('mongoose');
-let User = require('../models/user');
-let userController = require('../controllers/user');
-router.get('/list', userController.displayUserList);
-router.get('/', userController.displayUserList);
-router.get('/add', userController.displayAddPage);
-router.post('/add', userController.processAddPage);
-router.get('/edit/:id', userController.displayEditPage);
-router.post('/edit/:id', userController.processEditPage);
-router.get('/delete/:id', userController.deletePage);
-router.get('/login', userController.displayLoginPage);
-module.exports = router;
+const express_1 = __importDefault(require("express"));
+const router = express_1.default.Router();
+exports.default = router;
+const user_1 = require("../controllers/user");
+router.get('/list', user_1.displayUserList);
+router.get('/', user_1.displayUserList);
+router.get('/add', user_1.displayAddPage);
+router.post('/add', processAddPage);
+router.get('/edit/:id', user_1.displayEditPage);
+router.post('/edit/:id', user_1.processEditPage);
+router.get('/delete/:id', user_1.processDeletePage);
+function processAddPage(arg0, processAddPage) {
+    throw new Error('Function not implemented.');
+}
 //# sourceMappingURL=users.js.map

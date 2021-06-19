@@ -1,26 +1,36 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const router = express_1.default.Router();
-module.exports.displayHomePage = (req, res, next) => {
+exports.processLogoutPage = exports.processLoginPage = exports.displayLoginPage = exports.displayContactPage = exports.displayServicesPage = exports.displayProjectsPage = exports.displayAboutPage = exports.displayHomePage = void 0;
+function displayHomePage(req, res, next) {
     res.render('home', { title: 'Home' });
-};
-module.exports.displayAboutPage = (req, res, next) => {
+}
+exports.displayHomePage = displayHomePage;
+function displayAboutPage(req, res, next) {
     res.render('about', { title: 'About' });
-};
-module.exports.displayProjectsPage = (req, res, next) => {
+}
+exports.displayAboutPage = displayAboutPage;
+function displayProjectsPage(req, res, next) {
     res.render('projects', { title: 'Projects' });
-};
-module.exports.displayServicesPage = (req, res, next) => {
+}
+exports.displayProjectsPage = displayProjectsPage;
+function displayServicesPage(req, res, next) {
     res.render('services', { title: 'Services' });
-};
-module.exports.displayContactPage = (req, res, next) => {
+}
+exports.displayServicesPage = displayServicesPage;
+function displayContactPage(req, res, next) {
     res.render('contact', { title: 'Contact' });
-};
-module.exports.displayLoginPage = (req, res, next) => {
-    res.render('login', { title: 'Login' });
-};
+}
+exports.displayContactPage = displayContactPage;
+function displayLoginPage(req, res, next) {
+    if (!req.user) {
+        res.render('login', { title: 'Login', page: 'login', messages: req.flash('loginMessage') });
+    }
+}
+exports.displayLoginPage = displayLoginPage;
+function processLoginPage(req, res, next) {
+}
+exports.processLoginPage = processLoginPage;
+function processLogoutPage(req, res, next) {
+}
+exports.processLogoutPage = processLogoutPage;
 //# sourceMappingURL=index.js.map
