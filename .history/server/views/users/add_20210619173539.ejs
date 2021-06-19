@@ -1,0 +1,65 @@
+<!-- add.ejs : Viktoriia Romaniuk : 301079072 : 2021-06-18 -->
+
+<!-- Header block -->
+<%- include ("../partials/header.ejs") %>
+
+<!-- Main navigation bar -->
+<%- include ("../partials/main_nav.ejs") %>
+
+<!-- Main Content to Add User -->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1><%= title %></h1>
+
+            <form class="form" method="POST">
+                <div class="form-group">
+                    <label for="userTextFied">Username</label         
+                    ><input type="text" class="form-control"
+                    id="userTextFied"
+                    placeholder="Enter User account name"
+                    name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="nameTextFied">Full name</label         
+                    ><input type="text" class="form-control"
+                    id="nameTextFied"
+                    placeholder="Enter User full name"
+                    name="contactName" required>
+                </div>
+                <div class="form-group">
+                    <label for="phoneTextFied">Phone number</label         
+                    ><input type="phone" class="form-control"
+                    id="phoneTextFied"
+                    placeholder="Enter Contact Number"
+                    name="contactNumber">
+                </div>
+                <div class="form-group">
+                    <label for="emailTextFied"">Email</label         
+                    ><input type="email" class="form-control"
+                    id="emailTextFied"
+                    placeholder="Enter Contact Email"
+                    name="contactEmail">
+                </div>
+                <div class="form-group">
+                    <label for="passwordTextFied">Password</label         
+                    ><input type="password" class="form-control"
+                    id="passwordTextFied"
+                    placeholder="Enter User password"
+                    name="password" required>
+                </div>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Submit</button>
+
+                    <a href="/users/list" class="btn btn-warning">
+                        <i class="fas fa-undo"></i> Cancel</a>
+            </form>
+        </div>    
+    </div>
+</div>
+
+<!-- Bottom stick navigator bar -->
+<%- include ("../partials/bottom_nav.ejs") %>
+
+<!-- Footer block -->
+<%- include ("../partials/footer.ejs") %>

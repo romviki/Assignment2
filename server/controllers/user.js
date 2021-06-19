@@ -7,13 +7,14 @@ exports.processDeletePage = exports.processEditPage = exports.displayEditPage = 
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const user_1 = __importDefault(require("../models/user"));
+const contact_1 = __importDefault(require("../models/contact"));
 function displayUserList(req, res, next) {
-    user_1.default.find((err, usersList) => {
+    contact_1.default.find((err, contactList) => {
         if (err) {
             return console.error(err);
         }
         else {
-            res.render('users/list', { title: 'Business Contact List', UsersList: usersList });
+            res.render('users/list', { title: 'Business Contact List', ContactList: contactList });
         }
     });
 }
@@ -24,13 +25,28 @@ function displayAddPage(req, res, next) {
 exports.displayAddPage = displayAddPage;
 function processAddPage(req, res, next) {
     let newUser = new user_1.default({
-        "user": req.body.user,
-        "name": req.body.name,
-        "phone": req.body.phone,
-        "email": req.body.email,
-        "password": req.body.password,
+        "username": req.body.username,
+        "password": req.body.password
     });
-    user_1.default.create(newUser, (err, User) => {
+    let userId = newUser._id;
+    console.log("NewUser Id: " + userId);
+    let newContact = new contact_1.default({
+        "contactName": req.body.contactName,
+        "contactNumber": req.body.contactNumber,
+        "contactEmail": req.body.contactEmail,
+        "userId": userId,
+    });
+    user_1.default.register(newUser, req.body.password, (err) => {
+        if (err) {
+            console.error('Error: Inserting New User');
+            console.error(err);
+            if (err.name == 'UserExistsError') {
+                console.error('Error: User Already Exists');
+            }
+            return res.redirect('/users/list');
+        }
+    });
+    contact_1.default.create(newContact, (err, Contact) => {
         if (err) {
             console.log(err);
             res.end(err);
@@ -43,28 +59,26 @@ function processAddPage(req, res, next) {
 exports.processAddPage = processAddPage;
 function displayEditPage(req, res, next) {
     let id = req.params.id;
-    user_1.default.findById(id, (err, userToEdit) => {
+    contact_1.default.findById(id, (err, contact) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.render('users/edit', { title: 'Edit Contact', user: userToEdit });
+            res.render('users/edit', { title: 'Edit Contact', contactToEdit: contact });
         }
     });
 }
 exports.displayEditPage = displayEditPage;
 function processEditPage(req, res, next) {
     let id = req.params.id;
-    let updateUser = new user_1.default({
+    let updateContact = new contact_1.default({
         "_id": id,
-        "user": req.body.user,
-        "name": req.body.name,
-        "phone": req.body.phone,
-        "email": req.body.email,
-        "password": req.body.password
+        "contactName": req.body.contactName,
+        "contactNumber": req.body.contactNumber,
+        "contactEmail": req.body.contactEmail,
     });
-    user_1.default.updateOne({ "_id": id }, updateUser, (err) => {
+    contact_1.default.updateOne({ "_id": id }, updateContact, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
@@ -76,13 +90,21 @@ function processEditPage(req, res, next) {
 }
 exports.processEditPage = processEditPage;
 function processDeletePage(req, res, next) {
-    let id = req.params.id;
-    user_1.default.remove({ "_id": id }, (err) => {
+    let contactId = req.params.id;
+    let userId = req.params.userId;
+    contact_1.default.remove({ "_id": contactId }, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
+            user_1.default.remove({ userId }, (err) => {
+                if (err) {
+                    console.log(err);
+                    res.end(err);
+                }
+                console.log("Delete id: " + userId);
+            });
             res.redirect('/users/list');
         }
     });

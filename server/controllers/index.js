@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.processLogoutPage = exports.processLoginPage = exports.displayLoginPage = exports.displayContactPage = exports.displayServicesPage = exports.displayProjectsPage = exports.displayAboutPage = exports.displayHomePage = void 0;
+const passport_1 = __importDefault(require("passport"));
 function displayHomePage(req, res, next) {
     res.render('home', { title: 'Home' });
 }
@@ -23,14 +27,38 @@ function displayContactPage(req, res, next) {
 exports.displayContactPage = displayContactPage;
 function displayLoginPage(req, res, next) {
     if (!req.user) {
-        res.render('login', { title: 'Login', page: 'login', messages: req.flash('loginMessage') });
+        return res.render('login', { title: 'Login', page: 'login', messages: req.flash('loginMessage') });
     }
+    return res.redirect('/users/list');
 }
 exports.displayLoginPage = displayLoginPage;
 function processLoginPage(req, res, next) {
+    passport_1.default.authenticate('local', (err, user, info) => {
+        if (err) {
+            console.log(err);
+            return next(err);
+        }
+        console.log("======= We are inside passport.authenticate");
+        console.log("======= username: " + user);
+        if (!user) {
+            req.flash('loginMessage', 'Authentication Error');
+            return res.redirect('/login');
+        }
+        console.log("======= We passed check on !username");
+        req.login(user, (err) => {
+            if (err) {
+                console.log(err);
+                return next(err);
+            }
+            console.log("======= There is no db error");
+            return res.redirect('/users/list');
+        });
+    })(req, res, next);
 }
 exports.processLoginPage = processLoginPage;
 function processLogoutPage(req, res, next) {
+    req.logout();
+    res.redirect('/login');
 }
 exports.processLogoutPage = processLogoutPage;
 //# sourceMappingURL=index.js.map

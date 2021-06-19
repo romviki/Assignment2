@@ -68,6 +68,9 @@ app.use(passport_1.default.session());
 passport_1.default.use(user_1.default.createStrategy());
 passport_1.default.serializeUser(user_1.default.serializeUser());
 passport_1.default.deserializeUser(user_1.default.deserializeUser());
+passport_1.default.use(user_1.default.createStrategy());
+passport_1.default.serializeUser(user_1.default.serializeUser());
+passport_1.default.deserializeUser(user_1.default.deserializeUser());
 app.use('/', index_1.default);
 app.use('/users', users_1.default);
 app.use(function (req, res, next) {
