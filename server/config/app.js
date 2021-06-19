@@ -48,7 +48,7 @@ db.once("open", function () {
     console.log(`Connected to MongoDB at: ${DBConfig.HostName}`);
 });
 exports.default = app;
-app.set('views', path_1.default.join(__dirname, '../Views'));
+app.set('views', path_1.default.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 app.use(morgan_1.default('dev'));
 app.use(express_1.default.json());
