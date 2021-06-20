@@ -25,7 +25,7 @@ declare global
     export type UserDocument = mongoose.Document &
     {
         _id: String,
-        username: String,
+        user: String,
         password: String
     }
 }

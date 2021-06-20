@@ -9,7 +9,7 @@ import User from '../models/user';
 import Contact from '../models/contact';
 
 // import Utils
-import { UserName,AuthGuard } from '../Utils';
+import { UserName, } from '../Utils';
 
 
 // Display Functions 
@@ -24,13 +24,13 @@ export function displayUserList (req: Request,res: Response,next: NextFunction):
         {
             //console.log(UserList);
             /* GET contacts page. */
-            res.render('users/list', { title: 'Business Contact List', ContactList: contactList, userName: UserName(req) });
+            res.render('users/list', { title: 'Business Contact List', ContactList: contactList });
         }
     });
 }
 
 export function displayAddPage (req:Request,res:Response,next:NextFunction): void {
-    res.render('users/add', { title: 'Add New Contact', userName: UserName(req)});
+    res.render('users/add', { title: 'Add New Contact'});
 }
 
 export function processAddPage (req:Request,res:Response,next:NextFunction): void {
@@ -93,7 +93,7 @@ export function displayEditPage (req:Request,res:Response,next:NextFunction): vo
         else
         {
             // show the edit view
-            res.render('users/edit', {title: 'Edit Contact', contactToEdit: contact, userName: UserName(req) })
+            res.render('users/edit', {title: 'Edit Contact', contactToEdit: contact })
         }
     });
 }
@@ -149,6 +149,6 @@ export function processDeletePage (req:Request,res:Response,next:NextFunction): 
 }
 
 module.exports.displayLoginPage = (req: Request,res: Response,next: NextFunction) => {
-    res.render('login', {title: 'Login', userName: UserName(req)});
+    res.render('login', {title: 'Login'});
 }
 

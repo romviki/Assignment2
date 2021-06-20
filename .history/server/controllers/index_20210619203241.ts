@@ -9,29 +9,29 @@ import { UserName,AuthGuard } from '../Utils';
 
 /* Get home page */ 
 export function displayHomePage (req: Request,res: Response,next: NextFunction): void {
-    res.render('home', {title: 'Home', userName: UserName(req)});
+    res.render('home', {title: 'Home'});
 }
 
 export function displayAboutPage (req: Request,res: Response,next: NextFunction): void {
-    res.render('about', {title: 'About', userName: UserName(req)});
+    res.render('about', {title: 'About'});
 }
 
 export function displayProjectsPage (req: Request,res: Response,next: NextFunction): void {
-    res.render('projects', {title: 'Projects', userName: UserName(req)});
+    res.render('projects', {title: 'Projects'});
 }
 
 export function displayServicesPage (req: Request,res: Response,next: NextFunction): void {
-    res.render('services', {title: 'Services', userName: UserName(req)});
+    res.render('services', {title: 'Services'});
 }
 
 export function displayContactPage (req: Request,res: Response,next: NextFunction): void {
-    res.render('contact', {title: 'Contact', userName: UserName(req)});
+    res.render('contact', {title: 'Contact'});
 }
 
 export function displayLoginPage (req: Request,res: Response,next: NextFunction): void {
     if (!req.user)
     {
-        return res.render('login', {title: 'Login', page: 'login', userName: UserName(req), messages: req.flash('loginMessage') });
+        return res.render('login', {title: 'Login', page: 'login', messages: req.flash('loginMessage') });
     }  
     return res.redirect('/users/list');
 }

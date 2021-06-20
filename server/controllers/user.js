@@ -8,19 +8,20 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const user_1 = __importDefault(require("../models/user"));
 const contact_1 = __importDefault(require("../models/contact"));
+const Utils_1 = require("../Utils");
 function displayUserList(req, res, next) {
     contact_1.default.find((err, contactList) => {
         if (err) {
             return console.error(err);
         }
         else {
-            res.render('users/list', { title: 'Business Contact List', ContactList: contactList });
+            res.render('users/list', { title: 'Business Contact List', ContactList: contactList, userName: Utils_1.UserName(req) });
         }
     });
 }
 exports.displayUserList = displayUserList;
 function displayAddPage(req, res, next) {
-    res.render('users/add', { title: 'Add New Contact' });
+    res.render('users/add', { title: 'Add New Contact', userName: Utils_1.UserName(req) });
 }
 exports.displayAddPage = displayAddPage;
 function processAddPage(req, res, next) {
@@ -65,7 +66,7 @@ function displayEditPage(req, res, next) {
             res.end(err);
         }
         else {
-            res.render('users/edit', { title: 'Edit Contact', contactToEdit: contact });
+            res.render('users/edit', { title: 'Edit Contact', contactToEdit: contact, userName: Utils_1.UserName(req) });
         }
     });
 }
@@ -98,7 +99,7 @@ function processDeletePage(req, res, next) {
             res.end(err);
         }
         else {
-            user_1.default.remove({ userId }, (err) => {
+            user_1.default.remove({ "_id": userId }, (err) => {
                 if (err) {
                     console.log(err);
                     res.end(err);
@@ -111,6 +112,6 @@ function processDeletePage(req, res, next) {
 }
 exports.processDeletePage = processDeletePage;
 module.exports.displayLoginPage = (req, res, next) => {
-    res.render('login', { title: 'Login' });
+    res.render('login', { title: 'Login', userName: Utils_1.UserName(req) });
 };
 //# sourceMappingURL=user.js.map
