@@ -145,7 +145,7 @@ export function processDeletePage (req:Request,res:Response,next:NextFunction): 
             }
             else
             {
-                User.remove({"_id": userId}, (err:Error) => {
+                User.remove({"_id": user}, (err:Error) => {
                     if (err) 
                     {
                         console.log(err);

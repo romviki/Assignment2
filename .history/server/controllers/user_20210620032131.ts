@@ -127,36 +127,34 @@ export function processEditPage (req:Request,res:Response,next:NextFunction): vo
 export function processDeletePage (req:Request,res:Response,next:NextFunction): void {
     let contactId = req.params.id;
 
-    Contact.findById(contactId, (err:Error, user: any) => {
-
-        let userId = user.userId;
-
+    let userId = Contact.findById(contactId, (err:Error, userId: any) => {
         if (err) 
         {
             console.log(err);
             res.end(err);
         }
+    });
+    console.log("userID: " + userId.userId);
 
-        Contact.remove({"_id": contactId}, (err:Error) => {
-            if (err) 
-            {
-                console.log(err);
-                res.end(err);
-            }
-            else
-            {
-                User.remove({"_id": userId}, (err:Error) => {
-                    if (err) 
-                    {
-                        console.log(err);
-                        res.end(err);
-                    }
-                    console.log("Delete id: " + userId);
-                });
-                // refresh the contact list
-                res.redirect('/users/list');
-            }
-        });
+    Contact.remove({"_id": contactId}, (err:Error) => {
+        if (err) 
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            User.remove({"_id": req.params.userId}, (err:Error) => {
+                if (err) 
+                {
+                    console.log(err);
+                    res.end(err);
+                }
+                console.log("Delete id: " + req.params.userId);
+            });
+            // refresh the contact list
+            res.redirect('/users/list');
+        }
     });
 }
 

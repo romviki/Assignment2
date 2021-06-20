@@ -92,22 +92,28 @@ function processEditPage(req, res, next) {
 exports.processEditPage = processEditPage;
 function processDeletePage(req, res, next) {
     let contactId = req.params.id;
-    let userId = req.params.userId;
-    contact_1.default.remove({ "_id": contactId }, (err) => {
+    contact_1.default.findById(contactId, (err, user) => {
+        let userId = user.userId;
         if (err) {
             console.log(err);
             res.end(err);
         }
-        else {
-            user_1.default.remove({ "_id": userId }, (err) => {
-                if (err) {
-                    console.log(err);
-                    res.end(err);
-                }
-                console.log("Delete id: " + userId);
-            });
-            res.redirect('/users/list');
-        }
+        contact_1.default.remove({ "_id": contactId }, (err) => {
+            if (err) {
+                console.log(err);
+                res.end(err);
+            }
+            else {
+                user_1.default.remove({ "_id": userId }, (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    }
+                    console.log("Delete id: " + userId);
+                });
+                res.redirect('/users/list');
+            }
+        });
     });
 }
 exports.processDeletePage = processDeletePage;
