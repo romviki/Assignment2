@@ -13,10 +13,9 @@
         <div class="offset-md-2 col-md-8">
 
             <h1 class="text-center"><%= title %></h1>
-             <% if (userName) { %>
             <a href="/users/add" class="btn btn-primary btn10v" role="button" >
             <i class="fas fa-plus-circle"></i> Add User</a>  
-            <% } %>
+
             <table class="table table-bordered table-striped table-hover">
                 <!-- Header table -->
                 <tr>
@@ -38,7 +37,6 @@
                         <td class="text-center"><%= ContactList[count].contactName %></td>
                         <td class="text-center"><%= ContactList[count].contactNumber %></td>
                         <td class="text-center"><%= ContactList[count].contactEmail %></td>
-                        <% if (userName) { %>
                         <td class="text-center col-1">
                             <a href="/users/edit/<%= ContactList[count]._id %>" class="btn btn-primary">
                                 <i class="fas fa-pencil-alt"></i> Edit</a>
@@ -47,7 +45,6 @@
                             <a href="/users/delete/<%= ContactList[count]._id %>" class="btn btn-danger">
                                 <i class="fas fa-trash alt"></i> Delete</a>
                         </td>
-                        <% } %>
                     </tr>
                 <% } %>
               </tr>

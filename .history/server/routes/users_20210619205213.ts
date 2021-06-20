@@ -12,18 +12,18 @@ router.get('/list', displayUserList)
 router.get('/', displayUserList);
 
 /* GET Route for displaying the Add page - CREATE Operation */
-router.get('/add', AuthGuard, displayAddPage);
+router.get('/add', displayAddPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post('/add', AuthGuard, processAddPage);
+router.post('/add', processAddPage);
 
 /* GET Route for displaying the Edit page - UPDATE Operation */
-router.get('/edit/:id', AuthGuard, displayEditPage);
+router.get('/edit/:id', displayEditPage);
 
 /* POST Route for processing the Add page - UPDATE Operation */
-router.post('/edit/:id', AuthGuard, processEditPage);
+router.post('/edit/:id', processEditPage);
 
 /* GET to perform  Deletion - DELETE Operation */
-router.get('/delete/:id', AuthGuard, processDeletePage);
+router.get('/delete/:id', processDeletePage);
 
 
